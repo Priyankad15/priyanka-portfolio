@@ -10,13 +10,13 @@ export const profile = {
   subtitle: "Full-Stack Developer · AI Enthusiast · Data Analytics Learner",
   email: "priyankachopora@gmail.com",
   phone: "+91 6374544393",
-  location: "Kanchipuram, Tamil Nadu, India",
+  location: "Chennai, Tamil Nadu, India",
   linkedin: "https://www.linkedin.com/in/priyankad15",
   github: "https://github.com/Priyankad15",
   githubUsername: "Priyankad15",
   leetcodeUsername: "Priyankad15",
   leetcodeUrl: "https://leetcode.com/Priyankad15",
-  resumeUrl: "/Priyanka_Resume.pdf",
+  resumeUrl: "/Priyanka_D_Resume.pdf",
   availability: "Open to Internships & New-Grad Roles",
 };
 
@@ -47,7 +47,6 @@ export const skillGroups: SkillGroup[] = [
       { name: "Java", icon: "java", level: 82 },
       { name: "Python", icon: "python", level: 88 },
       { name: "JavaScript", icon: "javascript", level: 85 },
-      { name: "C", icon: "c", level: 70 },
     ],
   },
   {
@@ -131,37 +130,53 @@ export type Internship = {
 
 export const internships: Internship[] = [
   {
-    role: "Cloud Computing Intern",
-    company: "Algoalpha Tech IT Solution",
-    duration: "June 2025",
-    location: "Remote",
+    role: "Data Analyst Intern",
+    company: "Top Tech Developers",
+    duration: "Jan 2026 — Feb 2026",
+    location: "Chennai, Tamil Nadu",
     description:
-      "Worked hands-on with AWS cloud infrastructure — deployment, service management, and performance tuning for production-style workloads.",
+      "Analyzed, cleaned, and visualized business data to generate actionable insights and improve reporting efficiency using Python, SQL, Excel, and Power BI.",
     contributions: [
-      "Deployed and managed applications on AWS using EC2, S3, and IAM",
-      "Implemented high-availability architecture patterns with load balancing and auto-scaling",
-      "Set up CloudWatch monitoring and resolved performance bottlenecks",
-      "Migrated legacy workloads to cloud environments with the engineering team",
+      "Automated data preparation workflows using Python, SQL, and Excel, reducing manual effort by 40%",
+      "Improved report accuracy by 30% through data validation, cleansing, and transformation techniques",
+      "Developed interactive dashboards in Power BI to uncover business insights and support data-driven decision-making",
+      "Performed exploratory data analysis (EDA) to identify trends, patterns, and key performance metrics",
+      "Collaborated within Agile sprint cycles to deliver analytical reports and support business requirements",
     ],
-    tech: ["AWS", "EC2", "S3", "Cloud Architecture"],
-  },
+    tech: [
+      "Python",
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Pandas",
+      "NumPy",
+    ],
+  }, // ✅ This comma was missing
+
   {
-    role: "Software Developer Intern",
-    company: "8Queens Software Technologies Pvt. Ltd.",
-    duration: "May 2024",
-    location: "Kanchipuram, Tamil Nadu",
+    role: "Cloud Computing Intern",
+    company: "AlgoAlpha Tech Solution",
+    duration: "June 2025 — July 2025",
+    location: "Chennai, Tamil Nadu",
     description:
-      "Built responsive web interfaces and integrated client-side features as part of an agile product team.",
+      "Worked with AWS cloud services to deploy, monitor, and optimize cloud infrastructure while improving system performance, scalability, and resource utilization.",
     contributions: [
-      "Built responsive, cross-device UI using HTML, CSS, and JavaScript",
-      "Developed reusable components and dynamic client-side interactions",
-      "Translated Figma designs into production-ready frontend code",
-      "Integrated third-party APIs for seamless frontend–backend communication",
+      "Configured and maintained virtualized cloud environments, enhancing scalability and resource utilization",
+      "Monitored and analyzed AWS performance metrics to identify bottlenecks and support incident resolution",
+      "Optimized cloud resource allocation, improving operational efficiency by 20%",
+      "Implemented cloud deployment best practices to strengthen system scalability, reliability, and availability",
+      "Collaborated with the engineering team to troubleshoot infrastructure issues and maintain cloud services",
     ],
-    tech: ["JavaScript", "HTML/CSS", "REST APIs", "Agile"],
+    tech: [
+      "AWS",
+      "EC2",
+      "S3",
+      "IAM",
+      "CloudWatch",
+      "Virtualization",
+    ],
   },
 ];
-
 // ── Projects ────────────────────────────────────────────────
 export type Project = {
   title: string;
@@ -177,6 +192,7 @@ export type Project = {
   status: "live" | "in-progress";
   allowEmbed: boolean;
   featured?: boolean;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -222,8 +238,9 @@ export const projects: Project[] = [
       "Machine Learning",
       "Data Analytics",
     ],
-    liveUrl: "https://skillbridge.example.com",
-    githubUrl: "https://github.com/Priyankad15",
+    image:"/project/Data-Driven Career Recommendation & Skill Gap Analysis.jpeg",
+    liveUrl: "https://skill-bridge-bn53.onrender.com/",
+    githubUrl: "https://github.com/Priyankad15/Data-Driven-Approach-to-Career-Recommendation-and-Skill-Gap-Analysis",
     accent: "violet",
     mockup: "dashboard",
     status: "live",
@@ -270,7 +287,7 @@ export const education = [
       "Vel Tech Multi Tech Dr. Rangarajan Dr. Sakunthala Engineering College",
     duration: "2023 — 2027",
     score: "CGPA: 8.08",
-    location: "Kanchipuram, Tamil Nadu",
+    location: "Avadi,Chennai, Tamil Nadu",
   },
 ];
 
@@ -325,7 +342,7 @@ export const codingStats = [
   { label: "LeetCode Problems Solved", value: 100, suffix: "+" },
   { label: "DSA Topics Practiced", value: 11, suffix: "" },
   { label: "Day Coding Streak", value: 30, suffix: "+" },
-  { label: "Problem Solving Progress", value: 65, suffix: "%" },
+  { label: "Problem Solving Progress", value: 55, suffix: "%" },
 ];
 
 export type DsaTopic = { name: string; status: "completed" | "learning" };
@@ -370,7 +387,7 @@ export const currentFocus = [
   { label: "Data Analytics", progress: 75 },
   { label: "System Design Fundamentals", progress: 50 },
   { label: "Placement Preparation", progress: 70 },
-  { label: "Advanced DSA", progress: 60 },
+  { label: "Advanced DSA", progress: 55 },
 ];
 
 export const expertiseAreas = [
