@@ -66,7 +66,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+    <section id="contact" className="relative px-5 py-28 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">08 · Contact</span>
@@ -89,7 +89,7 @@ export function Contact() {
                   href={item.href}
                   target={item.href?.startsWith("http") ? "_blank" : undefined}
                   rel={item.href?.startsWith("http") ? "noreferrer" : undefined}
-                  className="group flex flex-col items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-all duration-300 hover:translate-x-1.5 hover:border-mint/30 hover:bg-card-hover sm:flex-row sm:items-center sm:gap-4 sm:p-5"
+                  className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:translate-x-1.5 hover:border-mint/30 hover:bg-card-hover"
                 >
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-mint/20 bg-mint/5 text-mint">
                     {item.icon}
@@ -98,7 +98,7 @@ export function Contact() {
                     <span className="block font-mono text-[11px] uppercase tracking-wide text-muted-dim">
                       {item.label}
                     </span>
-                    <span className="block break-all text-sm font-medium text-text">{item.value}</span>
+                    <span className="block truncate text-sm font-medium text-text">{item.value}</span>
                   </span>
                 </Tag>
               );
@@ -109,7 +109,7 @@ export function Contact() {
           <Reveal direction="right">
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-border bg-card/70 p-5 backdrop-blur-sm sm:p-8"
+              className="rounded-2xl border border-border bg-card/70 p-6 backdrop-blur-sm sm:p-8"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">

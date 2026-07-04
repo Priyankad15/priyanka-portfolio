@@ -17,7 +17,7 @@ function StatCard({ value, suffix, label, delay }: { value: number; suffix: stri
 
 export function About() {
   return (
-    <section id="about" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+    <section id="about" className="relative px-5 py-28 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">01 · About</span>
@@ -35,7 +35,7 @@ export function About() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
             {aboutStats.map((stat, i) => (
               <StatCard
                 key={stat.label}

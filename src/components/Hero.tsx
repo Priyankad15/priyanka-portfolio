@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8"
+      className="relative flex min-h-[100svh] items-center px-5 pt-28 pb-16 sm:px-8 lg:px-12"
     >
       <div className="mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         {/* LEFT — copy */}
@@ -27,7 +27,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[11vw] font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
+            className="font-display text-[13vw] font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
           >
             <span className="text-gradient-mint">{profile.name}</span>
           </motion.h1>
@@ -36,7 +36,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.32 }}
-            className="mt-4 font-display text-lg font-medium text-text/90 sm:text-2xl"
+            className="mt-4 font-display text-xl font-medium text-text/90 sm:text-2xl"
           >
             {profile.title}
           </motion.p>
@@ -54,7 +54,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.48 }}
-            className="mt-6 max-w-xl text-sm leading-relaxed text-muted sm:text-base lg:text-lg"
+            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
             {heroIntro}
           </motion.p>
@@ -63,7 +63,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.56 }}
-            className="mt-9 flex flex-col flex-wrap items-stretch gap-3 sm:flex-row sm:items-center"
+            className="mt-9 flex flex-wrap items-center gap-3"
           >
             <a
               href="#projects"
@@ -71,14 +71,14 @@ export function Hero() {
                 e.preventDefault();
                 document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="group relative overflow-hidden rounded-xl bg-mint px-6 py-3 text-center text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 sm:w-auto"
+              className="group relative overflow-hidden rounded-xl bg-mint px-6 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
             >
               View Projects
             </a>
             <a
               href={profile.resumeUrl}
               download
-              className="rounded-xl border border-border-hover bg-card px-6 py-3 text-center text-sm font-semibold text-text transition-colors hover:border-mint/40 hover:text-mint sm:w-auto"
+              className="rounded-xl border border-border-hover bg-card px-6 py-3 text-sm font-semibold text-text transition-colors hover:border-mint/40 hover:text-mint"
             >
               Download Resume
             </a>
@@ -88,7 +88,7 @@ export function Hero() {
                 e.preventDefault();
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="rounded-xl px-6 py-3 text-center text-sm font-semibold text-muted transition-colors hover:text-text sm:w-auto"
+              className="rounded-xl px-6 py-3 text-sm font-semibold text-muted transition-colors hover:text-text"
             >
               Contact Me →
             </a>

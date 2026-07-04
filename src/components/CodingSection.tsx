@@ -13,6 +13,25 @@ import {
   profile,
 } from "../data/content";
 import { useCountUp } from "../hooks/useCountUp";
+import { useInView } from "../hooks/useInView";
+
+function AnimatedProgressBar({ progress, delay }: { progress: number; delay: number }) {
+  const { ref, isInView } = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    rootMargin: "0px 0px -10% 0px",
+  });
+
+  return (
+    <div ref={ref} className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-bg/80">
+      <motion.div
+        initial={{ width: 0 }}
+        animate={isInView ? { width: `${progress}%` } : { width: 0 }}
+        transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+        className="h-full rounded-full bg-linear-to-r from-mint to-mint-soft"
+      />
+    </div>
+  );
+}
 
 function StatCard({
   value,
@@ -48,7 +67,7 @@ function StatCard({
 
 function DsaTimeline() {
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-3">
+    <div className="flex flex-wrap gap-2.5 sm:gap-3">
       {dsaRoadmap.map((topic, i) => {
         const done = topic.status === "completed";
         return (
@@ -58,7 +77,7 @@ function DsaTimeline() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.35, delay: i * 0.04 }}
-            className={`flex items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium transition-colors duration-300 sm:px-3.5 sm:text-[13px] ${
+            className={`flex items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-medium transition-colors duration-300 sm:text-[13px] ${
               done
                 ? "border-mint/30 bg-mint/8 text-mint-soft"
                 : "border-amber-400/25 bg-amber-400/5 text-amber-300"
@@ -77,16 +96,16 @@ function DsaTimeline() {
 
 function SkillTriadCards() {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <div className="grid gap-5 sm:grid-cols-3">
       {problemSolvingSkillCards.map((card, i) => (
         <Reveal key={card.title} direction="up" delay={i * 0.08}>
-          <div className="h-full rounded-2xl border border-border bg-card/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:shadow-xl hover:shadow-mint/5 sm:p-6">
+          <div className="h-full rounded-2xl border border-border bg-card/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:shadow-xl hover:shadow-mint/5">
             <span className="text-2xl">{card.icon}</span>
             <h4 className="mt-3 font-display text-base font-semibold text-text">{card.title}</h4>
             <ul className="mt-3 space-y-1.5">
               {card.items.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-[13px] text-muted">
-                  <span className="h-1 w-1 flex-shrink-0 rounded-full bg-mint" />
+                  <span className="h-1 w-1 shrink-0 rounded-full bg-mint" />
                   {item}
                 </li>
               ))}
@@ -112,15 +131,7 @@ function CurrentFocusGrid() {
           className="rounded-xl border border-border bg-card/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-mint/25"
         >
           <p className="text-[13px] font-medium text-text/90">{item.label}</p>
-          <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-bg/80">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${item.progress}%` }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.9, delay: i * 0.05 + 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="h-full rounded-full bg-gradient-to-r from-mint to-mint-soft"
-            />
-          </div>
+          <AnimatedProgressBar progress={item.progress} delay={i * 0.05 + 0.1} />
           <p className="mt-1.5 font-mono text-[11px] text-muted-dim">{item.progress}%</p>
         </motion.div>
       ))}
@@ -195,7 +206,7 @@ function ConnectAndOpenFor() {
 function DeveloperQuote() {
   return (
     <Reveal direction="up">
-      <div className="relative overflow-hidden rounded-2xl border border-mint/20 bg-card/60 px-5 py-8 text-center backdrop-blur-sm sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+      <div className="relative overflow-hidden rounded-2xl border border-mint/20 bg-card/60 px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-14">
         <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(60%_80%_at_50%_0%,rgba(52,211,153,0.1),transparent)]" />
         <span className="font-display text-3xl text-mint/40 sm:text-4xl">“</span>
         <p className="mx-auto max-w-2xl font-display text-lg font-medium leading-snug text-text sm:text-2xl">
@@ -211,7 +222,7 @@ function DeveloperQuote() {
 
 export function CodingSection() {
   return (
-    <section id="coding" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+    <section id="coding" className="relative px-5 py-28 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">
@@ -228,7 +239,7 @@ export function CodingSection() {
 
         {/* Coding platform stats */}
         <Reveal direction="up" delay={0.05} className="mt-12">
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {codingStats.map((stat, i) => (
               <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} delay={i * 0.08} />
             ))}

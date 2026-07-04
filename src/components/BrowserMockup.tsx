@@ -193,7 +193,7 @@ export function BrowserMockup({
         target="_blank"
         rel="noreferrer"
         aria-label={`Open ${displayUrl} live preview in a new tab`}
-        className="relative block aspect-16/10 cursor-pointer overflow-hidden"
+        className="relative block aspect-[16/10] cursor-pointer overflow-hidden"
       >
         {allowEmbed && !embedFailed ? (
           <iframe
@@ -213,7 +213,7 @@ export function BrowserMockup({
             <AbstractUI kind={kind} accent={accent} />
           </motion.div>
         )}
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent opacity-60" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
         <div
           className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ${
             hover ? "opacity-100" : "opacity-0"

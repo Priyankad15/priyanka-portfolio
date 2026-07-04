@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import type { ReactNode } from "react";
+import { useInView } from "../hooks/useInView";
 
 type Direction = "up" | "left" | "right" | "none";
 
@@ -36,17 +37,36 @@ export function Reveal({
   className?: string;
   as?: "div" | "li";
 }) {
-  const Comp = motion[as];
+  const { ref, isInView } = useInView<HTMLElement>({
+    threshold: 0.18,
+    rootMargin: "0px 0px -10% 0px",
+  });
+
+  if (as === "li") {
+    return (
+      <motion.li
+        ref={ref as React.RefObject<HTMLLIElement>}
+        className={className}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={variants[direction]}
+        transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.li>
+    );
+  }
+
   return (
-    <Comp
+    <motion.div
+      ref={ref as React.RefObject<HTMLDivElement>}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      animate={isInView ? "visible" : "hidden"}
       variants={variants[direction]}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </Comp>
+    </motion.div>
   );
 }

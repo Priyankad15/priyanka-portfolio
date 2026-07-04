@@ -36,7 +36,7 @@ const TECH_VISIBLE_LIMIT = 4;
 
 export function Projects() {
   return (
-    <section id="projects" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+    <section id="projects" className="relative px-5 py-28 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">
@@ -51,7 +51,7 @@ export function Projects() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid items-stretch gap-7 lg:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, i) => {
             const c = ACCENT_CLASSES[project.accent];
             const visibleTech = project.tech.slice(0, TECH_VISIBLE_LIMIT);
@@ -108,7 +108,7 @@ export function Projects() {
                     <ul className="mt-3 space-y-1.5">
                       {project.features.slice(0, 3).map((f) => (
                         <li key={f} className="flex gap-2 text-[12.5px] leading-relaxed text-text/85">
-                          <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.dot}`} />
+                          <span className={`mt-1.5 h-1 w-1 flex-shrink-0 rounded-full ${c.dot}`} />
                           {f}
                         </li>
                       ))}
@@ -137,7 +137,7 @@ export function Projects() {
                       )}
                     </div>
 
-                    <div className="mt-5 flex flex-col gap-2.5 pt-1 sm:flex-row">
+                    <div className="mt-5 flex gap-2.5 pt-1">
                       <a
                         href={project.liveUrl}
                         target="_blank"
