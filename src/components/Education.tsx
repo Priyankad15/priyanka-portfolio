@@ -3,7 +3,7 @@ import { education } from "../data/content";
 
 export function Education() {
   return (
-    <section id="education" className="relative px-5 py-28 sm:px-8 lg:px-12">
+    <section id="education" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">
@@ -14,10 +14,10 @@ export function Education() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {education.map((edu, i) => (
             <Reveal key={edu.degree} direction="up" delay={i * 0.08}>
-              <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:shadow-xl hover:shadow-mint/5">
+              <div className="group relative min-w-0 overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:shadow-xl hover:shadow-mint/5 sm:p-7">
                 <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-mint/10 blur-2xl transition-transform duration-500 group-hover:scale-150" />
                 <h3 className="font-display text-lg font-semibold text-text">{edu.degree}</h3>
                 <p className="mt-2 text-sm text-mint-soft">{edu.institution}</p>
@@ -33,7 +33,7 @@ export function Education() {
           ))}
 
           <Reveal direction="up" delay={0.16}>
-            <div className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-border-hover p-7">
+            <div className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-border-hover p-5 sm:p-7">
               <h3 className="font-display text-base font-semibold text-text">Core Focus Areas</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {[

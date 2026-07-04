@@ -31,7 +31,7 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50"
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-300 sm:px-8 ${
+        className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
           scrolled
             ? "mt-3 h-14 rounded-2xl border border-border bg-surface/70 shadow-lg shadow-black/20 backdrop-blur-xl"
             : "mt-0 h-20 border-b border-transparent bg-transparent"
@@ -43,7 +43,7 @@ export function Navbar() {
             e.preventDefault();
             handleNavClick("#home");
           }}
-          className="font-display text-lg font-semibold tracking-tight text-text"
+          className="font-display text-base font-semibold tracking-tight text-text sm:text-lg"
         >
           {profile.name}
           <span className="text-mint">.</span>

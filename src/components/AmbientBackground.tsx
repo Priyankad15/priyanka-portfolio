@@ -16,7 +16,8 @@ export function AmbientBackground() {
     if (!canvasEl) return;
     const canvas: HTMLCanvasElement = canvasEl;
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (ctx === null) return;
+    const context = ctx;
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -30,7 +31,7 @@ export function AmbientBackground() {
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      ctx?.scale(dpr, dpr);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
     window.addEventListener("resize", resize);
@@ -47,7 +48,7 @@ export function AmbientBackground() {
 
     let raf = 0;
     function draw() {
-      ctx!.clearRect(0, 0, width, height);
+      context.clearRect(0, 0, width, height);
       for (let i = 0; i < points.length; i++) {
         const p = points[i];
         p.x += p.vx;
@@ -55,21 +56,21 @@ export function AmbientBackground() {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        ctx!.beginPath();
-        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx!.fillStyle = "rgba(110, 231, 183, 0.45)";
-        ctx!.fill();
+        context.beginPath();
+        context.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        context.fillStyle = "rgba(110, 231, 183, 0.45)";
+        context.fill();
 
         for (let j = i + 1; j < points.length; j++) {
           const q = points[j];
           const d = Math.hypot(p.x - q.x, p.y - q.y);
           if (d < 130) {
-            ctx!.beginPath();
-            ctx!.moveTo(p.x, p.y);
-            ctx!.lineTo(q.x, q.y);
-            ctx!.strokeStyle = `rgba(110, 231, 183, ${(1 - d / 130) * 0.12})`;
-            ctx!.lineWidth = 0.6;
-            ctx!.stroke();
+            context.beginPath();
+            context.moveTo(p.x, p.y);
+            context.lineTo(q.x, q.y);
+            context.strokeStyle = `rgba(110, 231, 183, ${(1 - d / 130) * 0.12})`;
+            context.lineWidth = 0.6;
+            context.stroke();
           }
         }
       }
@@ -100,11 +101,11 @@ export function AmbientBackground() {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-bg">
-      <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_40%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-grid mask-[radial-gradient(ellipse_70%_60%_at_50%_0%,#000_40%,transparent_100%)]" />
       <canvas ref={canvasRef} className="absolute inset-0" />
       <div
         ref={glowRef}
-        className="absolute -left-0 -top-0 h-[500px] w-[500px] rounded-full opacity-[0.07] blur-[100px] will-change-transform"
+        className="absolute left-0 top-0 h-125 w-125 rounded-full opacity-[0.07] blur-[100px] will-change-transform"
         style={{ background: "radial-gradient(circle, #34d399, transparent 70%)" }}
       />
       <div className="noise-overlay" />

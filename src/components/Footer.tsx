@@ -43,9 +43,9 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-border px-5 py-12 sm:px-8 lg:px-12">
+    <footer className="relative border-t border-border px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           <div className="max-w-xs">
             <a href="#home" className="font-display text-lg font-semibold tracking-tight text-text">
               {profile.name}
@@ -56,7 +56,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-10 sm:gap-16">
+          <div className="grid gap-8 sm:grid-cols-3 sm:gap-10 lg:gap-16">
             <div>
               <h4 className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted-dim">Navigate</h4>
               <ul className="mt-4 space-y-2.5">

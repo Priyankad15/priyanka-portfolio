@@ -26,7 +26,7 @@ function App() {
       <LoadingScreen visible={loading} />
       <AmbientBackground />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
@@ -37,7 +37,7 @@ function App() {
         <Achievements />
         <Contact />
       </main>
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-x-hidden">
         <Footer />
       </div>
       <BackToTop />

@@ -41,7 +41,7 @@ const iconMap: Record<string, ReactElement> = {
 
 export function Achievements() {
   return (
-    <section id="achievements" className="relative px-5 py-28 sm:px-8 lg:px-12">
+    <section id="achievements" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">
@@ -52,10 +52,10 @@ export function Achievements() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {achievements.map((a, i) => (
             <Reveal key={a.title} direction="up" delay={i * 0.06}>
-              <div className="group h-full rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:bg-card-hover">
+              <div className="group h-full rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-mint/30 hover:bg-card-hover sm:p-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-mint/20 bg-mint/5 text-mint transition-transform duration-300 group-hover:scale-110">
                   {iconMap[a.icon]}
                 </div>

@@ -25,7 +25,7 @@ function SkillCard({
       transition={{ duration: 0.45, delay: index * 0.04 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative flex flex-col items-center gap-3 rounded-2xl border border-border bg-card/70 px-4 py-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-mint/40 hover:bg-card-hover hover:shadow-xl hover:shadow-mint/10"
+      className="group relative flex min-w-0 flex-col items-center gap-3 rounded-2xl border border-border bg-card/70 px-3 py-5 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-mint/40 hover:bg-card-hover hover:shadow-xl hover:shadow-mint/10 sm:px-4 sm:py-6"
     >
       {/* Tooltip */}
       <AnimatePresence>
@@ -35,7 +35,7 @@ function SkillCard({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.92 }}
             transition={{ duration: 0.15 }}
-            className="pointer-events-none absolute -top-9 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-md border border-border-hover bg-bg px-2.5 py-1 font-mono text-[11px] text-mint-soft shadow-lg"
+            className="pointer-events-none absolute -top-10 left-1/2 z-20 max-w-[90%] -translate-x-1/2 rounded-md border border-border-hover bg-bg px-2.5 py-1 font-mono text-[11px] text-mint-soft shadow-lg sm:whitespace-nowrap"
           >
             {level}% proficiency
           </motion.div>
@@ -59,7 +59,7 @@ function SkillCard({
         <TechIcon name={icon} className="h-8 w-8 drop-shadow-sm" />
       </motion.span>
 
-      <span className="text-xs font-medium text-text/90">{name}</span>
+      <span className="break-words text-xs font-medium leading-tight text-text/90">{name}</span>
 
       {/* Progress bar */}
       <div className="h-1.5 w-full overflow-hidden rounded-full bg-bg/80">
@@ -77,7 +77,7 @@ function SkillCard({
 
 export function Skills() {
   return (
-    <section id="skills" className="relative px-5 py-28 sm:px-8 lg:px-12">
+    <section id="skills" className="relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal direction="up">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint">02 · Skills</span>
@@ -95,7 +95,7 @@ export function Skills() {
               <h3 className="mb-4 font-mono text-xs uppercase tracking-[0.15em] text-muted-dim">
                 {group.emoji} {group.label}
               </h3>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                 {group.skills.map((skill, si) => (
                   <SkillCard
                     key={skill.name}
